@@ -1,4 +1,4 @@
-/*
+   /*
   Author: 
   Learning Intention: The students will learn about configuring PINs and how to write binary data to a specific PIN.
   Success Criteria:
@@ -22,11 +22,21 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/03.digitalWrite/LED_Schedmatic.png
 
 */
+static unsigned int myLED = 8;
+static unsigned int myLED2 = 13;
+bool myToggle = false;
 
 void setup() {
-
+Serial.begin(9600);
+Serial.println("Serial Monitor COnfigured to 9600");
+Serial.println("------------------------------");
+pinMode(myLED, OUTPUT); //configure the pin for output
+pinMode(myLED2, OUTPUT); //configure the pin for output
 }
 
 void loop() {
-
+  myToggle = !myToggle;
+ digitalWrite(myLED, myToggle);
+ digitalWrite(myLED2, myToggle);
+delay(1000);
 }
