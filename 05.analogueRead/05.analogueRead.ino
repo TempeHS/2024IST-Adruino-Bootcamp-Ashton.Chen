@@ -16,10 +16,27 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/05.serialRead/Bootcamp-serialRead.png
 */
 
-void setup() {
+unsigned static int myPOT = A0;
+unsigned static int lightSensor = A1;
+unsigned static int soundSensor = A2;
 
+void setup() {
+Serial.begin(9600);
+Serial.println(" Serial Monitor configred to 9600");
+Serial.println("-----------------------");
 }
 
 void loop() {
-
+unsigned int POTval = analogRead(myPOT);
+unsigned int LITval = analogRead(lightSensor);
+unsigned int SNDval = analogRead(soundSensor);
+Serial.print(":myPOT:"); 
+Serial.print(POTval);
+Serial.print(",");
+Serial.print(":lightSensor:"); 
+Serial.print(LITval);
+Serial.print(",");
+Serial.print(":soundSensor:"); 
+Serial.print(SNDval);
+Serial.println(",");
 }
